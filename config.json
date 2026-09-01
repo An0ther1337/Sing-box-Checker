@@ -1,0 +1,34 @@
+{
+  "log": {
+    "level": "fatal"
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 20000
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-out",
+      "server": "151.101.129.6",
+      "server_port": 80,
+      "uuid": "7dc61cd6-320e-5d71-8bd3-9720e0b03c4b",
+      "transport": {
+        "type": "ws"
+      }
+    }
+  ],
+  "dns": {
+    "servers": [
+      {
+        "tag": "remote",
+        "type": "udp",
+        "server": "8.8.8.8",
+        "detour": "vless-out"
+      }
+    ]
+  }
+}
